@@ -23,8 +23,10 @@ import { Dimensions, StatusBar } from 'react-native'
 import Home from "./src/screens/Home.vue";
 
 import Monumenti from "./src/screens/Monumenti.vue"
+import Mappa from "./src/screens/Mappa.vue"
+import Tips from "./src/screens/Tips.vue"
+import Rewind from "./src/screens/Rewind.vue"
 
-const SCREEN_HEIGHT = Dimensions.get('screen').height
 const STATUS_BAR_HEIGHT = StatusBar.currentHeight || 24
 
 const StackNavigator = createStackNavigator(
@@ -39,6 +41,39 @@ const StackNavigator = createStackNavigator(
       screen: Monumenti,
       navigationOptions: () => ({
         title: "Monumenti",
+        headerStyle: {
+          marginTop: STATUS_BAR_HEIGHT,
+          elevation: 0,
+          shadowOpacity: 0
+        }
+      })
+    },
+    Mappa: {
+      screen: Mappa,
+      navigationOptions: () => ({
+        title: "Mappa",
+        headerStyle: {
+          marginTop: STATUS_BAR_HEIGHT,
+          elevation: 0,
+          shadowOpacity: 0,
+        }
+      })
+    },
+    Tips: {
+      screen: Tips,
+      navigationOptions: () => ({
+        title: "Tips",
+        headerStyle: {
+          marginTop: STATUS_BAR_HEIGHT,
+          elevation: 0,
+          shadowOpacity: 0,
+        }
+      })
+    },
+    Rewind: {
+      screen: Rewind,
+      navigationOptions: () => ({
+        title: "Rewind",
         headerStyle: {
           marginTop: STATUS_BAR_HEIGHT,
           elevation: 0,

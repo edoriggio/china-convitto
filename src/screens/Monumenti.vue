@@ -15,15 +15,63 @@
 <template>
   <view>
     <tab-bar />
+
+    <scroll-view class="monuments"
+                 :style="{ marginBottom: bottom }"
+                 :showsVerticalScrollIndicator="false"
+                 :content-container-style="{
+                                            flexDirection: 'row',
+                                            flexWrap: 'wrap',
+                                            justifyContent: 'space-around',
+                                            paddingHorizontal: 14,
+                                            paddingVertical: 14
+                                           }">
+      <card v-for="monument in keys"
+            :key="monument"
+            :name="monument"
+            :image="monuments[monument].image"
+            :address="monuments[monument].address"
+            :article="monuments[monument].article"
+            :chinese="monuments[monument].chinese" />
+    </scroll-view>
   </view>
 </template>
 
 <script>
+import { Dimensions , StatusBar } from 'react-native';
+import MonumentiDB from '../../data/monumenti.json'
+
 import TabBar from '../components/monumenti/TabBar.vue'
+import Card from '../components/monumenti/Card.vue'
+
+const SCREEN_HEIGHT = Dimensions.get('screen').height
+const WINDOW_HEIGHT = Dimensions.get('window').height
+const BOTTOM_BAR_HEIGHT = Math.floor(SCREEN_HEIGHT - WINDOW_HEIGHT + StatusBar.currentHeight + 20)
 
 export default {
   components: {
-    TabBar
+    TabBar,
+    Card
+  },
+  data() {
+    return {
+      monuments: Object,
+      keys: [],
+      bottom: BOTTOM_BAR_HEIGHT,
+    }
+  },
+  mounted() {
+    this.monuments = MonumentiDB
+
+    for (let monument in this.monuments) {
+      this.keys.push(monument.toString())
+    }
   }
 }
 </script>
+
+<style scoped>
+.monuments {
+  margin-top: 20px;
+}
+</style>
