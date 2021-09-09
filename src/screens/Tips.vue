@@ -14,6 +14,10 @@
 
 <template>
   <view>
+    <status-bar :backgroundColor="'transparent'"
+              :barStyle="'dark-content'"
+              :translucent="true" />
+              
     <text> Ciao </text>
   </view>
 </template>

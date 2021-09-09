@@ -13,26 +13,28 @@
 // limitations under the License.
 
 <template>
-  <touchable-opacity class="card"
-                     :style="{
-                              marginTop: distance,
-                              marginBottom: distance,
-                              marginLeft: 6,
-                              marginRight: 6,
-                              shadowOffset: {width: 0, height: 2}
-                             }">
-    <image class="image"
-           :source="require('../../../assets/monuments/tiananmen.jpeg')"/>
+  <view class="shadow"
+        :style="{ shadowOffset: {width: 0, height: 2} }">
+    <touchable-opacity class="card"
+                      :style="{
+                                marginTop: distance,
+                                marginBottom: distance,
+                                marginLeft: 6,
+                                marginRight: 6
+                              }">
+      <image class="image"
+            :source="require('../../../assets/monuments/tiananmen.jpeg')"/>
 
-    <text class="text">{{ name }}</text>
-    <text class="chinese">{{ chinese }}</text>
-  </touchable-opacity>
+      <text class="text">{{ name }}</text>
+      <text class="chinese">{{ chinese }}</text>
+    </touchable-opacity>
+  </view>
 </template>
 
 <script>
 import { Dimensions } from 'react-native'
 
-const WINDOW_WIDTH = Dimensions.get('window').width;
+const WINDOW_WIDTH = Dimensions.get('window').width
 let distance = Math.round((WINDOW_WIDTH - (147 * 2) - (14 * 2) - (6 * 4)) / 2) - 6
 
 export default {
@@ -60,12 +62,16 @@ export default {
 
   border-radius: 12px;
 
-  shadow-color: rgba(40, 40, 40, 0.23);
-  shadow-radius: 2.26px;
   elevation: 4;
 
   overflow: hidden;
   background-color: white;
+}
+
+.shadow {
+  shadow-color: rgba(40, 40, 40, 0.23);
+  shadow-opacity: 1;
+  shadow-radius: 2.26px;
 }
 
 .text {

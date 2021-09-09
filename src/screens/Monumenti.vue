@@ -14,11 +14,15 @@
 
 <template>
   <view>
+    <status-bar :backgroundColor="'transparent'"
+              :barStyle="'dark-content'"
+              :translucent="true" />
+        
     <tab-bar />
-
     <scroll-view class="monuments"
                  :style="{ marginBottom: bottom }"
                  :showsVerticalScrollIndicator="false"
+                 :alwaysBounceVertical="false"
                  :content-container-style="{
                                             flexDirection: 'row',
                                             flexWrap: 'wrap',

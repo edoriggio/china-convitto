@@ -18,7 +18,7 @@
 
 <script>
 import { createAppContainer, createStackNavigator } from "vue-native-router"
-import { Dimensions, StatusBar } from 'react-native'
+import { getStatusBarHeight } from 'react-native-status-bar-height'
 
 import Home from "./src/screens/Home.vue";
 
@@ -27,7 +27,7 @@ import Mappa from "./src/screens/Mappa.vue"
 import Tips from "./src/screens/Tips.vue"
 import Rewind from "./src/screens/Rewind.vue"
 
-const STATUS_BAR_HEIGHT = StatusBar.currentHeight || 24
+const STATUS_BAR_HEIGHT = getStatusBarHeight(false)
 
 const StackNavigator = createStackNavigator(
   {

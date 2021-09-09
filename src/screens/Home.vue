@@ -14,22 +14,35 @@
 
 <template>
 <view class="container">
+  <status-bar :backgroundColor="'transparent'"
+              :barStyle="'light-content'"
+              :translucent="true" />
+
   <view class="background">
     <image class="bg-image"
             :source="require('../../assets/bg.png')" />
   </view>
 
-  <image class="logo-title"
-          :source="require('../../assets/icon-with-title.png')" />
+  <view class="foreground"
+        :style="{height: height}">
+    <image class="logo-title"
+            :source="require('../../assets/icon-with-title.png')" />
 
-  <tray />
-  <menu />
+    <tray />
+    <menu />
+  </view>
 </view>
 </template>
 
 <script>
+import { Dimensions, Platform } from 'react-native'
+
 import Tray from '../components/home/Tray.vue'
 import Menu from '../components/home/Menu.vue'
+
+const WINDOW_HEIGHT = Platform.OS === 'ios' ? Dimensions.get('window').height : Dimensions.get('window').height + 20
+
+
 
 export default {
   components: {
@@ -39,6 +52,11 @@ export default {
   props: {
     navigation: {
       type: Object
+    }
+  },
+  data() {
+    return {
+      height: WINDOW_HEIGHT,
     }
   },
   mounted() {
@@ -72,7 +90,10 @@ export default {
 }
 
 .foreground {
+  width: 100%;
+
   align-items: center;
+  justify-content: center;
 }
 
 .logo-title {
