@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-segmented-control/segmented-control": "^2.4.0",
     "expo": "~42.0.1",
     "expo-status-bar": "~1.0.4",
     "metro-react-native-babel-preset": "^0.66.2",
@@ -18,10 +19,12 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-dotenv": "^3.2.0",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-map-link": "^2.7.28",
     "react-native-paper": "^4.9.2",
     "react-native-reanimated": "^2.2.0",
     "react-native-remix-icon": "^0.3.0",
     "react-native-screens": "^3.6.0",
+    "react-native-status-bar-height": "^2.6.0",
     "react-native-svg": "^12.1.1",
     "react-native-web": "~0.13.12",
     "vue-native-core": "0.3.1",

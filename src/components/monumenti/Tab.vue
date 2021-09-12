@@ -38,7 +38,6 @@ export default {
   methods: {
     changeTab(tab) {
       this.$root.$emit('changedTab', tab)
-      console.log(tab)
     }
   },
   mounted() {

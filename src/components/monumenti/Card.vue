@@ -14,16 +14,16 @@
 
 <template>
   <touchable-opacity class="card"
+                     :on-press="() => navigate('Monumento')"
                      :style="{
                               marginTop: distance,
                               marginBottom: distance,
                               marginLeft: 6,
                               marginRight: 6,
                               shadowOffset: {width: 0, height: 2}
-                             }"
-                     :on-press="() => navigate('monumento')">
+                             }">
     <image class="image"
-           :source="require('../../../assets/monuments/tiananmen.jpeg')"/>
+           :source="getImage(code)" />
 
     <text class="text">{{ name }}</text>
     <text class="chinese">{{ chinese }}</text>
@@ -32,17 +32,19 @@
 
 <script>
 import { Dimensions } from 'react-native'
+import getImage from '../../assets.js'
 
-const WINDOW_WIDTH = Dimensions.get('window').width;
+const WINDOW_WIDTH = Dimensions.get('window').width
 let distance = Math.round((WINDOW_WIDTH - (147 * 2) - (14 * 2) - (6 * 4)) / 2) - 6
 
 export default {
   props: {
     name: String,
-    image: String,
-    address: String,
-    article: String,
-    chinese: String
+    article: Array,
+    chinese: String,
+    code: String,
+    coordinates: Object,
+    titles: Array
   },
   data() {
     return {
@@ -51,14 +53,18 @@ export default {
   },
   methods: {
     navigate(route) {
-      this.$root.$emit('navigate', {
-                                    route: route,
-                                    name: this.name,
-                                    image: this.image,
-                                    address: this.address,
-                                    article: this.article,
-                                    chinese: this.chinese
-                                   })
+      this.$root.$emit('navigate-monumento', {
+        route: route,
+        name: this.name,
+        article: this.article,
+        chinese: this.chinese,
+        code: this.code,
+        coordinates: this.coordinates,
+        titles: this.titles
+      })
+    },
+    getImage(code) {
+      return getImage(code)
     }
   }
 }
@@ -71,14 +77,20 @@ export default {
   min-width: 147px;
   max-width: 147px;
 
+  height: 200px;
+
   border-radius: 12px;
 
-  shadow-color: rgba(40, 40, 40, 0.23);
-  shadow-radius: 2.26px;
   elevation: 4;
 
   overflow: hidden;
   background-color: white;
+}
+
+.shadow {
+  shadow-color: rgba(40, 40, 40, 0.23);
+  shadow-opacity: 1;
+  shadow-radius: 2.26px;
 }
 
 .text {
@@ -92,6 +104,7 @@ export default {
 }
 
 .chinese {
+  margin-top: auto;
   margin-bottom: 12px;
   margin-left: 12px;
   margin-right: 12px;

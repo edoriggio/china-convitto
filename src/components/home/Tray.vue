@@ -30,9 +30,12 @@
 import { WEATHER_API_KEY } from '@env'
 import moment from 'moment-timezone'
 
-import Icon from 'react-native-remix-icon';
+import Icon from 'react-native-remix-icon'
 
 export default {
+  components: {
+    Icon
+  },
   data() {
     return {
       hours: String,
@@ -40,9 +43,6 @@ export default {
       icon_name: "signal-wifi-error-line",
       temperature: "N/D"
     }
-  },
-  components: {
-    Icon
   },
   mounted() {
     let offset = moment.tz.guess()
@@ -74,6 +74,7 @@ export default {
           let response = JSON.parse(request.response)
           this.icon_name = this.getIconName(response.weather[0].icon)
           this.temperature = `${Math.floor(response.main.temp)}°C`
+          // console.log(response)
         } else {
           this.icon_name = this.getIconName('no')
         }

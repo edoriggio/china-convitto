@@ -14,11 +14,16 @@
 
 <template>
   <view>
+    <status-bar :backgroundColor="'transparent'"
+                :barStyle="'dark-content'"
+                :translucent="true" />
+        
     <tab-bar />
 
     <scroll-view class="monuments"
                  :style="{ marginBottom: bottom }"
                  :showsVerticalScrollIndicator="false"
+                 :alwaysBounceVertical="false"
                  :content-container-style="{
                                             flexDirection: 'row',
                                             flexWrap: 'wrap',
@@ -29,24 +34,26 @@
       <card v-for="monument in keys"
             :key="monument"
             :name="monument"
-            :image="monuments[monument].image"
-            :address="monuments[monument].address"
             :article="monuments[monument].article"
-            :chinese="monuments[monument].chinese"/>
+            :chinese="monuments[monument].chinese"
+            :code="monuments[monument].code"
+            :coordinates="monuments[monument].coordinates"
+            :titles="monuments[monument].titles" />
     </scroll-view>
   </view>
 </template>
 
 <script>
-import { Dimensions , StatusBar } from 'react-native';
+import { Dimensions } from 'react-native';
 import MonumentiDB from '../../data/monumenti.json'
+import { getStatusBarHeight } from 'react-native-status-bar-height'
 
 import TabBar from '../components/monumenti/TabBar.vue'
 import Card from '../components/monumenti/Card.vue'
 
 const SCREEN_HEIGHT = Dimensions.get('screen').height
 const WINDOW_HEIGHT = Dimensions.get('window').height
-const BOTTOM_BAR_HEIGHT = Math.floor(SCREEN_HEIGHT - WINDOW_HEIGHT + StatusBar.currentHeight + 20)
+const BOTTOM_BAR_HEIGHT = Math.floor(SCREEN_HEIGHT - WINDOW_HEIGHT + getStatusBarHeight(false) + 20)
 
 export default {
   components: {
@@ -63,18 +70,30 @@ export default {
       monuments: Object,
       keys: [],
       bottom: BOTTOM_BAR_HEIGHT,
+      tab: "Primo"
     }
   },
   mounted() {
     this.monuments = MonumentiDB
 
     for (let monument in this.monuments) {
-      this.keys.push(monument.toString())
+      if (this.monuments[monument.toString()].category === "Primo") {
+        this.keys.push(monument.toString())
+      }
     }
 
-    this.$root.$on('navigate', (obj) => {
-      this.navigation.navigate(obj.route)
-      console.log(obj.route)
+    this.$root.$on('navigate-monumento', (obj) => {
+      this.navigation.navigate(obj.route, obj)
+    })
+
+    this.$root.$on('activeTabChanged', (title) => {
+      this.keys = []
+
+      for (let monument in this.monuments) {
+        if (this.monuments[monument.toString()].category === title) {
+          this.keys.push(monument.toString())
+        }
+      }
     })
   }
 }
