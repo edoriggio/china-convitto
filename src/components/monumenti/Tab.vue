@@ -13,19 +13,19 @@
 // limitations under the License.
 
 <template>
-<touchable-opacity class="pill"
-                   :class="[
-                            (active ? 'active' : 'not-active'),
-                            (title === 'Primo' ? 'primo': ''),
-                            (title === 'Quarto' ? 'quarto': ''),
-                            (title !== 'Quarto' ? 'other' : '')
-                           ]"
-                   :on-press="() => changeTab(title)">
-  <text class="title"
-        :class="active ? 'active-title' : 'not-active-title'">
-    {{ title }} Anno
-  </text>
-</touchable-opacity>
+  <touchable-opacity class="pill"
+                    :class="[
+                              (active ? 'active' : 'not-active'),
+                              (title === 'Primo' ? 'primo': ''),
+                              (title === 'Quarto' ? 'quarto': ''),
+                              (title !== 'Quarto' ? 'other' : '')
+                            ]"
+                    :on-press="() => changeTab(title)">
+    <text class="title"
+          :class="active ? 'active-title' : 'not-active-title'">
+      {{ title }} Anno
+    </text>
+  </touchable-opacity>
 </template>
 
 <script>

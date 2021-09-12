@@ -20,7 +20,8 @@
                               marginLeft: 6,
                               marginRight: 6,
                               shadowOffset: {width: 0, height: 2}
-                             }">
+                             }"
+                     :on-press="() => navigate('monumento')">
     <image class="image"
            :source="require('../../../assets/monuments/tiananmen.jpeg')"/>
 
@@ -46,6 +47,18 @@ export default {
   data() {
     return {
       distance: distance,
+    }
+  },
+  methods: {
+    navigate(route) {
+      this.$root.$emit('navigate', {
+                                    route: route,
+                                    name: this.name,
+                                    image: this.image,
+                                    address: this.address,
+                                    article: this.article,
+                                    chinese: this.chinese
+                                   })
     }
   }
 }

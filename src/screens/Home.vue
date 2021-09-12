@@ -13,18 +13,21 @@
 // limitations under the License.
 
 <template>
-<view class="container">
-  <view class="background">
-    <image class="bg-image"
+  <view class="container">
+    <view class="background">
+      <image class="bg-image"
             :source="require('../../assets/bg.png')" />
-  </view>
+    </view>
 
-  <image class="logo-title"
+    <image class="logo-title"
           :source="require('../../assets/icon-with-title.png')" />
 
-  <tray />
-  <menu />
-</view>
+    <tray />
+    <menu />
+
+    <image class="delimiter"
+          :source="require('../../assets/delimiter.png')">
+  </view>
 </template>
 
 <script>
@@ -77,5 +80,11 @@ export default {
 
 .logo-title {
   margin-top: 90px;
+}
+
+.delimiter {
+  position: absolute;
+
+  bottom: 150px;
 }
 </style>

@@ -13,39 +13,39 @@
 // limitations under the License.
 
 <template>
-<view class="background">
-  <view class="row">
-    <touchable-opacity :on-press="() => navigate('Monumenti')">
-      <view class="element">
-        <image :source="require('../../../assets/menu/monuments.png')" />
-        <text class="menu-text"> Monumenti </text>
-      </view>
-    </touchable-opacity>
+  <view class="background">
+    <view class="row">
+      <touchable-opacity :on-press="() => navigate('Monumenti')">
+        <view class="element">
+          <image :source="require('../../../assets/menu/monuments.png')" />
+          <text class="menu-text"> Monumenti </text>
+        </view>
+      </touchable-opacity>
 
-    <touchable-opacity :on-press="() => navigate('Mappa')">
-      <view class="element">
-        <image :source="require('../../../assets/menu/map.png')" />
-        <text class="menu-text"> Mappa </text>
-      </view>
-    </touchable-opacity>
+      <touchable-opacity :on-press="() => navigate('Mappa')">
+        <view class="element">
+          <image :source="require('../../../assets/menu/map.png')" />
+          <text class="menu-text"> Mappa </text>
+        </view>
+      </touchable-opacity>
+    </view>
+
+    <view class="row">
+      <touchable-opacity :on-press="() => navigate('Tips')">
+        <view class="element">
+          <image :source="require('../../../assets/menu/tips.png')" />
+          <text class="menu-text"> Tips </text>
+        </view>
+      </touchable-opacity>
+
+      <touchable-opacity :on-press="() => navigate('Rewind')">
+        <view class="element">
+          <image :source="require('../../../assets/menu/rewind.png')" />
+          <text class="menu-text"> Rewind </text>
+        </view>
+      </touchable-opacity>
+    </view>
   </view>
-
-  <view class="row">
-    <touchable-opacity :on-press="() => navigate('Tips')">
-      <view class="element">
-        <image :source="require('../../../assets/menu/tips.png')" />
-        <text class="menu-text"> Tips </text>
-      </view>
-    </touchable-opacity>
-
-    <touchable-opacity :on-press="() => navigate('Rewind')">
-      <view class="element">
-        <image :source="require('../../../assets/menu/rewind.png')" />
-        <text class="menu-text"> Rewind </text>
-      </view>
-    </touchable-opacity>
-  </view>
-</view>
 </template>
 
 <script>

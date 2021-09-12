@@ -18,11 +18,12 @@
 
 <script>
 import { createAppContainer, createStackNavigator } from "vue-native-router"
-import { Dimensions, StatusBar } from 'react-native'
+import { StatusBar } from 'react-native'
 
-import Home from "./src/screens/Home.vue";
+import Home from "./src/screens/Home.vue"
 
 import Monumenti from "./src/screens/Monumenti.vue"
+import Monumento from "./src/screens/Monumento.vue"
 import Mappa from "./src/screens/Mappa.vue"
 import Tips from "./src/screens/Tips.vue"
 import Rewind from "./src/screens/Rewind.vue"
@@ -80,7 +81,8 @@ const StackNavigator = createStackNavigator(
           shadowOpacity: 0,
         }
       })
-    }
+    },
+
   },
   {
     initialRouteName: 'Home'

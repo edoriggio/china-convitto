@@ -13,17 +13,17 @@
 // limitations under the License.
 
 <template>
-<view class="tray">
-  <view class="pill">
-    <icon :name="`${icon_name}`" size="30"/>
-    <text class="text left"> {{ temperature }} </text>
-  </view>
+  <view class="tray">
+    <view class="pill">
+      <icon :name="`${icon_name}`" size="30"/>
+      <text class="text left"> {{ temperature }} </text>
+    </view>
 
-  <view class="pill">
-    <text class="text right"> {{ hours }}:{{ minutes }} </text>
-    <icon name="time-line" size="30"/>
+    <view class="pill">
+      <text class="text right"> {{ hours }}:{{ minutes }} </text>
+      <icon name="time-line" size="30"/>
+    </view>
   </view>
-</view>
 </template>
 
 <script>

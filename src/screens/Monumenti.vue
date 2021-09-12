@@ -32,7 +32,7 @@
             :image="monuments[monument].image"
             :address="monuments[monument].address"
             :article="monuments[monument].article"
-            :chinese="monuments[monument].chinese" />
+            :chinese="monuments[monument].chinese"/>
     </scroll-view>
   </view>
 </template>
@@ -53,6 +53,11 @@ export default {
     TabBar,
     Card
   },
+  props: {
+    navigation: {
+      type: Object
+    }
+  },
   data() {
     return {
       monuments: Object,
@@ -66,6 +71,11 @@ export default {
     for (let monument in this.monuments) {
       this.keys.push(monument.toString())
     }
+
+    this.$root.$on('navigate', (obj) => {
+      this.navigation.navigate(obj.route)
+      console.log(obj.route)
+    })
   }
 }
 </script>
