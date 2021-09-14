@@ -20,7 +20,7 @@
 
     <image class="background"
            :source="getImage(params.code)"
-           :transform="([{translateY: -top}])"
+           :transform="([{ translateY: -top }])"
            :style="{ width: width }" />
     
     <view class="card"
@@ -46,8 +46,8 @@
                          :values="params.titles"
                          :selectedIndex="selectedIndex"
                          :tintColor="'#327D68'"
-                         :fontStyle="{color: 'black'}"
-                         :activeFontStyle="{color: 'white'}"
+                         :fontStyle="{ color: 'black' }"
+                         :activeFontStyle="{ color: 'white' }"
                          :onChange="(event) => {
                             selectedIndex = event.nativeEvent.selectedSegmentIndex
                          }" />
@@ -118,7 +118,6 @@ export default {
       showLocation({
         latitude: this.params.coordinates.latitude,
         longitude: this.params.coordinates.longitude,
-        title: this.params.name,
         googleForceLatLon: true
       })
     }

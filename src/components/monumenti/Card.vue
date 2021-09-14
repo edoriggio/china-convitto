@@ -13,21 +13,23 @@
 // limitations under the License.
 
 <template>
-  <touchable-opacity class="card"
-                     :on-press="() => navigate('Monumento')"
-                     :style="{
-                              marginTop: distance,
-                              marginBottom: distance,
-                              marginLeft: 6,
-                              marginRight: 6,
-                              shadowOffset: {width: 0, height: 2}
-                             }">
-    <image class="image"
-           :source="getImage(code)" />
+  <view class="shadow" 
+        :style="{shadowOffset: {width: 0, height: 2}}">
+    <touchable-opacity class="card"
+                      :on-press="() => navigate('Monumento')"
+                      :style="{
+                                marginTop: distance,
+                                marginBottom: distance,
+                                marginLeft: 6,
+                                marginRight: 6
+                              }">
+      <image class="image"
+                    :source="getImage(code)" />
 
-    <text class="text">{{ name }}</text>
-    <text class="chinese">{{ chinese }}</text>
-  </touchable-opacity>
+      <text class="text">{{ name }}</text>
+      <text class="chinese">{{ chinese }}</text>
+    </touchable-opacity>
+  </view>
 </template>
 
 <script>
