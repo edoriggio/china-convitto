@@ -14,15 +14,15 @@
 
 <template>
   <view class="shadow" 
-        :style="{shadowOffset: {width: 0, height: 2}}">
+        :style="{ shadowOffset: {width: 0, height: 2} }">
     <touchable-opacity class="card"
-                      :on-press="() => navigate('Monumento')"
-                      :style="{
+                       :on-press="() => navigate('Monumento')"
+                       :style="{
                                 marginTop: distance,
                                 marginBottom: distance,
                                 marginLeft: 6,
                                 marginRight: 6
-                              }">
+                               }">
       <image class="image"
                     :source="getImage(code)" />
 

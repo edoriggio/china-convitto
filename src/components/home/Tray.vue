@@ -14,21 +14,44 @@
 
 <template>
   <view class="tray">
-    <view class="pill">
-      <icon :name="`${icon_name}`" size="30"/>
+    <touchable-opacity class="pill"
+                       :onPress="() => {
+                         if (city === 'Shanghai') {
+                           getWeather('Beijing')
+                           city = 'Beijing'
+
+                           toast.show('Meteo di Beijing', {
+                             duration: 2000,
+                           })
+
+                           saveCity('Beijing')
+                         } else {
+                           getWeather('Shanghai')
+                           city = 'Shanghai'
+
+                           toast.show('Meteo di Shanghai', {
+                             duration: 2000,
+                           })
+
+                           saveCity('Shanghai')
+                         }
+                       }">
+      <icon :name="`${icon_name}`" size="30" />
       <text class="text left"> {{ temperature }} </text>
-    </view>
+    </touchable-opacity>
 
     <view class="pill">
       <text class="text right"> {{ hours }}:{{ minutes }} </text>
-      <icon name="time-line" size="30"/>
+      <icon name="time-line" size="30" />
     </view>
   </view>
 </template>
 
 <script>
-import { WEATHER_API_KEY } from '@env'
 import moment from 'moment-timezone'
+import { WEATHER_API_KEY } from '@env'
+import Toast from 'react-native-root-toast'
+import storage from '../../../data/storage'
 
 import Icon from 'react-native-remix-icon'
 
@@ -41,15 +64,41 @@ export default {
       hours: String,
       minutes: String,
       icon_name: "signal-wifi-error-line",
-      temperature: "N/D"
+      temperature: "N/D",
+      city: String,
+      toast: Toast
     }
   },
-  mounted() {
+  async mounted() {
     let offset = moment.tz.guess()
     this.updateTime(offset)
 
-    // TODO: Get user location
-    this.getWeather('Rome')
+    await storage
+      .load({
+        key: 'weather-city'
+      })
+      .then((res) => {
+        this.city = res
+      })
+      .catch((err) => {
+        console.log(err)
+
+        switch (err.name) {
+          case 'NotFoundError':
+            storage.save({
+              key: 'weather-city',
+              data: 'Beijing'
+            })
+
+            this.city = 'Beijing'
+            break
+          default:
+            console.log(err)
+            break
+        }
+      })
+
+    this.getWeather(this.city)
   },
   beforeDestroy() {
     clearTimeout()
@@ -63,6 +112,12 @@ export default {
       this.minutes = now.toString().split(':')[1]
 
       setTimeout(this.updateTime, 1000)
+    },
+    saveCity(city) {
+      storage.save({
+        key: 'weather-city',
+        data: city
+      })
     },
     getWeather(city) {
       let request = new XMLHttpRequest()
@@ -121,8 +176,6 @@ export default {
 .tray {
   flex-direction: row;
   justify-content: space-between;
-
-  margin-top: 35px;
 
   width: 92%;
 }

@@ -53,8 +53,8 @@ export default {
   align-items: center;
   justify-content: center;
 
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 7px;
+  padding-bottom: 8.5px;
   padding-left: 15px;
   padding-right: 15px;
 

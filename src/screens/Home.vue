@@ -20,17 +20,23 @@
 
   <view class="background">
     <image class="bg-image"
-            :source="require('../../assets/bg.png')" />
-    </view>
+           :source="require('../../assets/bg.png')" />
+  </view>
 
   <view class="foreground"
         :style="{height: height}">
-    <image class="logo-title"
-            :source="require('../../assets/icon-with-title.png')" />
 
-    <tray />
-    <menu />
+    <view class="logo-title-view">
+      <image class="logo-title"
+             :source="require('../../assets/icon-with-title.png')"
+             :style="{ width: imageWidth }" />
+    </view>
 
+    <view class="menu">
+      <tray />
+      <menu />
+    </view>
+    
   </view>
   
   <image class="delimiter"
@@ -44,7 +50,8 @@ import { Dimensions, Platform } from 'react-native'
 import Tray from '../components/home/Tray.vue'
 import Menu from '../components/home/Menu.vue'
 
-const WINDOW_HEIGHT = Platform.OS === 'ios' ? Dimensions.get('window').height : Dimensions.get('window').height + 20
+const WINDOW_HEIGHT = Platform.OS === 'ios' ? Dimensions.get('window').height : Dimensions.get('window').height
+const IMAGE_WIDTH = WINDOW_HEIGHT < 700 ? 150 : 200
 
 export default {
   components: {
@@ -59,6 +66,9 @@ export default {
   data() {
     return {
       height: WINDOW_HEIGHT,
+      imageWidth: IMAGE_WIDTH,
+      weatherCity: String,
+      setWeather: Function
     }
   },
   mounted() {
@@ -69,15 +79,7 @@ export default {
 }
 </script>
 
-<style>
-.container {
-  flex: 1;
-  align-items: center;
-  justify-content: space-between;
-
-  background-color: white;
-}
-
+<style scoped>
 .background {
   position: absolute;
   
@@ -92,19 +94,37 @@ export default {
 }
 
 .foreground {
+  flex-direction: column;
+
   width: 100%;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu {
+  width: 100%;
+
+  align-items: center;
+}
+
+.logo-title-view {
+  flex: 1;
+
+  margin-top: 24px;
 
   align-items: center;
   justify-content: center;
 }
 
 .logo-title {
-  margin-top: 90px;
+  resize-mode: contain;
 }
 
 .delimiter {
   position: absolute;
 
   bottom: 150px;
+  left: 130px;
 }
 </style>

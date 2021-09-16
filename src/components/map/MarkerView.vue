@@ -22,8 +22,8 @@
 </template>>
 
 <script>
-import { Platform } from 'react-native'
 import getImage from '../../assets.js'
+import { Platform } from 'react-native'
 
 import Icon from 'react-native-remix-icon'
 

@@ -15,9 +15,55 @@
 <template>
   <view>
     <status-bar :backgroundColor="'transparent'"
-              :barStyle="'dark-content'"
-              :translucent="true" />
-              
-    <text> Ciao </text>
+                :barStyle="'dark-content'"
+                :translucent="true" />
+
+    <scroll-view class="sections"
+                :showsVerticalScrollIndicator="false"
+                :alwaysBounceVertical="false">
+      <section v-for="section in sections"
+               :key="section.name"
+               :name="section.name"
+               :icon="section.icon"
+               :link="section.link" />
+    </scroll-view>
   </view>
 </template>
+
+<script>
+import Tips from "../../data/tips.json"
+
+import Section from '../components/tips/Section.vue'
+
+export default {
+  components: {
+    Section
+  },
+  props: {
+    navigation: {
+      type: Object
+    }
+  },
+  data() {
+    return {
+      sections: Object
+    }
+  },
+  mounted() {
+    this.sections = Tips
+
+    this.$root.$on("navigate-tips", (link) => {
+      this.navigation.navigate(link)
+    })
+  }
+}
+</script>
+
+<style scoped>
+.sections {
+  margin-top: 20px;
+
+  padding-vertical: 10px;
+  padding-horizontal: 10px;
+}
+</style>
