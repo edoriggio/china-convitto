@@ -40,6 +40,11 @@
       <text class="text left"> {{ temperature }} </text>
     </touchable-opacity>
 
+    <touchable-opacity class="circle"
+                       :onPress="navigate">
+      <icon name="information-line" />
+    </touchable-opacity>
+
     <view class="pill">
       <text class="text right"> {{ hours }}:{{ minutes }} </text>
       <icon name="time-line" size="30" />
@@ -104,6 +109,9 @@ export default {
     clearTimeout()
   },
   methods: {
+    navigate() {
+      this.$root.$emit('navigate', 'Info')
+    },
     updateTime(tz) {
       var new_tz = tz == 'Asia/Shanghai' ? 'Europe/Rome' : 'Asia/Shanghai'
       let now = moment.tz(new Date(), new_tz).format('HH:mm:ss')
@@ -122,7 +130,11 @@ export default {
     getWeather(city) {
       let request = new XMLHttpRequest()
 
-      request.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}&units=metric`)
+      request.open(
+        'GET',
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}&units=metric`
+      )
+      
       request.send()
       request.onload = () => {
         if (request.status === 200) {
@@ -175,6 +187,8 @@ export default {
 <style scoped>
 .tray {
   flex-direction: row;
+  
+  align-items: center;
   justify-content: space-between;
 
   width: 92%;
@@ -190,6 +204,18 @@ export default {
 
   background-color: white;
   border-radius: 200px;
+}
+
+.circle {
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 20px;
+
+  background-color: white;
 }
 
 .text {

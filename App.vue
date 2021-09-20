@@ -43,6 +43,13 @@ import Smog from './src/screens/tips/Smog.vue'
 import VPN from './src/screens/tips/VPN.vue'
 // REWIND
 import Rewind from './src/screens/Rewind.vue'
+// INFORMAZIONI
+import Info from './src/screens/Info.vue'
+import Numeri from './src/screens/settings/Numeri.vue'
+import Convertitore from './src/screens/settings/Convertitore.vue'
+import Riservata from './src/screens/settings/Riservata.vue'
+import Tutorial from './src/screens/settings/Tutorial.vue'
+import Riconoscimenti from './src/screens/settings/Riconoscimenti.vue'
 
 const STATUS_BAR_HEIGHT = getStatusBarHeight(false)
 
@@ -86,7 +93,7 @@ const StackNavigator = createStackNavigator(
         headerStyle: {
           marginTop: STATUS_BAR_HEIGHT,
           elevation: 0,
-          shadowOpacity: 0,
+          shadowOpacity: 0
         }
       })
     },
@@ -98,7 +105,7 @@ const StackNavigator = createStackNavigator(
         headerStyle: {
           marginTop: STATUS_BAR_HEIGHT,
           elevation: 0,
-          shadowOpacity: 0,
+          shadowOpacity: 0
         }
       })
     },
@@ -176,11 +183,77 @@ const StackNavigator = createStackNavigator(
         headerStyle: {
           marginTop: STATUS_BAR_HEIGHT,
           elevation: 0,
-          shadowOpacity: 0,
+          shadowOpacity: 0
         }
       })
     },
-
+    // INFORMAZIONI
+    Info: {
+      screen: Info,
+      navigationOptions: () => ({
+        title: 'Informazioni',
+        headerStyle: {
+          marginTop: STATUS_BAR_HEIGHT,
+          elevation: 0,
+          shadowOpacity: 0
+        }
+      })
+    },
+    Numeri: {
+      screen: Numeri,
+      navigationOptions: () => ({
+        title: 'Numeri di Emergenza',
+        headerStyle: {
+          marginTop: STATUS_BAR_HEIGHT,
+          elevation: 0,
+          shadowOpacity: 0
+        }
+      })
+    },
+    Convertitore: {
+      screen: Convertitore,
+      navigationOptions: () => ({
+        title: 'Convertitore',
+        headerStyle: {
+          marginTop: STATUS_BAR_HEIGHT,
+          elevation: 0,
+          shadowOpacity: 0
+        }
+      })
+    },
+    Riservata: {
+      screen: Riservata,
+      navigationOptions: () => ({
+        title: 'Area Riservata',
+        headerStyle: {
+          marginTop: STATUS_BAR_HEIGHT,
+          elevation: 0,
+          shadowOpacity: 0
+        }
+      })
+    },
+    Tutorial: {
+      screen: Tutorial,
+      navigationOptions: () => ({
+        title: 'Tutorial',
+        headerStyle: {
+          marginTop: STATUS_BAR_HEIGHT,
+          elevation: 0,
+          shadowOpacity: 0
+        }
+      })
+    },
+    Riconoscimenti: {
+      screen: Riconoscimenti,
+      navigationOptions: () => ({
+        title: 'Riconoscimenti',
+        headerStyle: {
+          marginTop: STATUS_BAR_HEIGHT,
+          elevation: 0,
+          shadowOpacity: 0
+        }
+      })
+    }
   },
   {
     initialRouteName: 'Home'

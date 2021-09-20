@@ -19,9 +19,9 @@
                 :translucent="true" />
 
     <scroll-view class="sections"
-                :showsVerticalScrollIndicator="false"
-                :alwaysBounceVertical="false">
-      <section v-for="section in sections"
+                 :showsVerticalScrollIndicator="false"
+                 :alwaysBounceVertical="false">
+      <section v-for="section in settings"
                :key="section.name"
                :name="section.name"
                :icon="section.icon"
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import Tips from "../../data/tips.json"
+import Info from '../../data/info.json'
 
 import Section from '../components/tips/Section.vue'
 
@@ -47,13 +47,13 @@ export default {
   },
   data() {
     return {
-      sections: Object
+      settings: Object
     }
   },
   mounted() {
-    this.sections = Tips
+    this.settings = Info
 
-    this.$root.$on("navigate-tips", (link) => {
+    this.$root.$on("navigate-info", (link) => {
       this.navigation.navigate(link)
     })
   }

@@ -13,16 +13,21 @@
 // limitations under the License.
 
 <template>
-  <touchable-opacity class="shadow section"
-                     :style="{ shadowOffset: {width: 0, height: 2} }"
-                     :onPress="() => navigate(link)">
-    <view class="left">
-      <icon :name="icon" color="#327D68" />
-      <text class="text">{{ name }}</text>
-    </view>
+  <view class="super-section">
+    <touchable-opacity class="shadow section"
+                      :style="{ shadowOffset: {width: 0, height: 2} }"
+                      :onPress="() => navigate(link, page)">
+      <view class="left">
+        <icon :name="icon" color="#327D68" />
+        <text class="text">{{ name }}</text>
+      </view>
 
-    <icon name="arrow-right-s-line" color="#327D68" />
-  </touchable-opacity>
+      <icon name="arrow-right-s-line" color="#327D68" />
+    </touchable-opacity>
+
+    <view v-if="name !== 'VPN' && name !== 'Riconoscimenti'"
+          class="divider" />
+  </view>
 </template>
 
 <script>
@@ -32,47 +37,55 @@ export default {
   props: {
     name: String,
     icon: String,
-    link: String
+    link: String,
+    page: String
   },
   components: {
     Icon
   },
   methods: {
-    navigate(link) {
-      this.$root.$emit('navigate-tips', link)
+    navigate(link, page) {
+      if (page === 'Tips') {
+        this.$root.$emit('navigate-tips', link)
+      } else if (page === 'Info') {
+        this.$root.$emit('navigate-info', link)
+      }
     }
   }
 }
 </script>
 
 <style scoped>
-.shadow {
-  shadow-color: rgba(40, 40, 40, 0.23);
-  shadow-opacity: 1;
-  shadow-radius: 2.26px;
-
-  elevation: 4;
+.super-section {
+  justify-content: center;
+  align-items: center;
 }
 
 .section {
-  flex: 1;
   flex-direction: row;
 
   align-items: center;
   justify-content: space-between;
+  
+  width: 95%;
 
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 10px;
   margin-right: 10px;
   margin-left: 10px;
-
-  padding-left: 19px;
-  padding-right: 14px;
-  padding-vertical: 20px;
+  
+  padding-vertical: 10px;
 
   border-radius: 12px;
 
   background-color: white;
+}
+
+.divider {
+  height: 2px;
+  width: 70%;
+  
+  background-color: #F6F6F6;
 }
 
 .left {

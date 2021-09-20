@@ -1,0 +1,27 @@
+{
+  "Numeri di Emergenza": {
+    "name": "Numeri di Emergenza",
+    "icon": "alarm-warning-line",
+    "link": "Numeri"
+  },
+  "Convertitore": {
+    "name": "Convertitore",
+    "icon": "exchange-cny-line",
+    "link": "Convertitore"
+  },
+  "Area Riservata": {
+    "name": "Area Riservata",
+    "icon": "lock-2-line",
+    "link": "Riservata"
+  },
+  "Tutorial": {
+    "name": "Tutorial",
+    "icon": "tools-line",
+    "link": "Tutorial"
+  },
+  "Riconoscimenti": {
+    "name": "Riconoscimenti",
+    "icon": "group-line",
+    "link": "Riconoscimenti"
+  }
+}
