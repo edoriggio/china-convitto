@@ -13,7 +13,7 @@
 // limitations under the License.
 
 <template>
-  <view>
+  <view class="view">
     <status-bar :backgroundColor="'transparent'"
                 :barStyle="'dark-content'"
                 :translucent="true" />
@@ -28,10 +28,19 @@
                :link="section.link"
                :page="navigation.state.routeName" />
     </scroll-view>
+
+    <view class="info">
+      <text>Version {{ version }}</text>
+      <touchable-opacity :onPress="openLink">
+        <text class="content">GitHub Repository</text>
+      </touchable-opacity>
+    </view>
   </view>
 </template>
 
 <script>
+import { Linking } from 'react-native'
+import Package from '../../app.json'
 import Info from '../../data/info.json'
 
 import Section from '../components/tips/Section.vue'
@@ -47,7 +56,8 @@ export default {
   },
   data() {
     return {
-      settings: Object
+      settings: Object,
+      version: Package.expo.version,
     }
   },
   mounted() {
@@ -56,15 +66,37 @@ export default {
     this.$root.$on("navigate-info", (link) => {
       this.navigation.navigate(link)
     })
+  },
+  methods: {
+    openLink() {
+      Linking.openURL('https://github.com/edoriggio/china-convitto')
+    }
   }
 }
 </script>
 
 <style scoped>
+.view {
+  flex: 1;
+}
+
 .sections {
+  flex: 1;
+
   margin-top: 20px;
 
-  /* padding-vertical: 10px; */
   padding-horizontal: 10px;
+}
+
+.info {
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.content {
+  margin-top: 10px;
+
+  text-decoration-line: underline;
 }
 </style>

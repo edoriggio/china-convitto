@@ -9,11 +9,6 @@
     "icon": "exchange-cny-line",
     "link": "Convertitore"
   },
-  "Area Riservata": {
-    "name": "Area Riservata",
-    "icon": "lock-2-line",
-    "link": "Riservata"
-  },
   "Tutorial": {
     "name": "Tutorial",
     "icon": "tools-line",

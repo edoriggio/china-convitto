@@ -17,5 +17,22 @@
     <status-bar :backgroundColor="'transparent'"
                 :barStyle="'dark-content'"
                 :translucent="true" />
+  
+    <view>
+      <text>In Valigia</text>
+
+      <checkbox :checked="selected"
+                :onValueChange="() => { selected = selected == true ? false : true}" />
+    </view>
   </view>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      selected: false  
+    }
+  }
+}
+</script>

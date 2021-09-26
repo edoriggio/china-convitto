@@ -15,7 +15,7 @@
 <template>
   <view class="view">
     <scroll-view class="scroll-view" 
-                :scollEnabled="false">
+                 :scollEnabled="false">
       <view class="converter">
         <status-bar :backgroundColor="'transparent'"
                     :barStyle="'dark-content'"
@@ -30,7 +30,7 @@
                       placeholder="0.0"
                       :clearTextOnFocus="true"
                       :onFocus="clear"
-                      :onSubmitEditing="convertEUR" />
+                      :onChangeText="convertEUR" />
         </view>
 
         <view class="currency"
@@ -43,7 +43,7 @@
                       placeholder="0.0"
                       :clearTextOnFocus="true"
                       :onFocus="clear"
-                      :onSubmitEditing="convertCNY" />
+                      :onChangeText="convertCNY" />
         </view>
       </view>
     </scroll-view>
@@ -62,8 +62,8 @@ export default {
   data() {
     return { 
       exchangeRate: Number,
-      eur: String,
-      cny: String
+      eur: "",
+      cny: ""
     }
   },
   mounted() {
@@ -92,12 +92,20 @@ export default {
       this.cny = ''
     },
     convertEUR() {
-      let cny = parseInt(this.eur) * this.exchangeRate
-      this.cny = cny.toFixed(2)
+      if (this.eur !== '') {
+        let cny = parseInt(this.eur) * this.exchangeRate
+        this.cny = cny.toFixed(2)
+      } else {
+        this.cny = ''
+      }
     },
     convertCNY() {
-      let eur = parseInt(this.cny) / this.exchangeRate
-      this.eur = eur.toFixed(2)
+      if (this.cny !== '') {
+        let eur = parseInt(this.cny) / this.exchangeRate
+        this.eur = eur.toFixed(2)
+      } else {
+        this.eur = ''
+      }
     }
   }
 }
@@ -125,7 +133,6 @@ export default {
   justify-content: center;
 
   width: 75%;
-  /* background-color: black; */
 }
 
 .curr-text {

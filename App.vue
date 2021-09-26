@@ -47,7 +47,6 @@ import Rewind from './src/screens/Rewind.vue'
 import Info from './src/screens/Info.vue'
 import Numeri from './src/screens/settings/Numeri.vue'
 import Convertitore from './src/screens/settings/Convertitore.vue'
-import Riservata from './src/screens/settings/Riservata.vue'
 import Tutorial from './src/screens/settings/Tutorial.vue'
 import Riconoscimenti from './src/screens/settings/Riconoscimenti.vue'
 
@@ -214,17 +213,6 @@ const StackNavigator = createStackNavigator(
       screen: Convertitore,
       navigationOptions: () => ({
         title: 'Convertitore',
-        headerStyle: {
-          marginTop: STATUS_BAR_HEIGHT,
-          elevation: 0,
-          shadowOpacity: 0
-        }
-      })
-    },
-    Riservata: {
-      screen: Riservata,
-      navigationOptions: () => ({
-        title: 'Area Riservata',
         headerStyle: {
           marginTop: STATUS_BAR_HEIGHT,
           elevation: 0,
