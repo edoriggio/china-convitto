@@ -58,7 +58,8 @@ export default {
         "Cappello con visiera",
         "Cuffiette",
         "Occhiali da sole",
-        "Borraccia"
+        "Borraccia",
+        "Mascherine"
       ]
     }
   }
@@ -67,7 +68,7 @@ export default {
 
 <style scoped>
 .title {
-  margin-top: 10px;
+  margin-top: 21px;
 
   font-style: normal;
   font-weight: bold;
@@ -78,7 +79,7 @@ export default {
 
 .container {
   padding-horizontal: 20px;
-  margin-top: 20px;
+  margin-top: 11px;
 }
 
 .todos {
