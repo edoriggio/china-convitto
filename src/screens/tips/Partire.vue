@@ -18,21 +18,70 @@
                 :barStyle="'dark-content'"
                 :translucent="true" />
   
-    <view>
-      <text>In Valigia</text>
+    <view class="container">
+      <text class="title">In Valigia</text>
 
-      <checkbox :checked="selected"
-                :onValueChange="() => { selected = selected == true ? false : true}" />
+      <view class="todos">
+        <to-do v-for="item in inValigia"
+               :key="item"
+               :text="item" />
+      </view>
+
+      <text class="title">Nello Zaino</text>
+
+      <view class="todos">
+        <to-do v-for="item in nelloZaino"
+               :key="item"
+               :text="item" />
+      </view>
     </view>
   </view>
 </template>
 
 <script>
+import ToDo from '../../components/tips/ToDo.vue'
+
 export default {
+  components: {
+    ToDo
+  },
   data() {
     return {
-      selected: false  
+      selected: false,
+      inValigia: [
+        "Scarpe eleganti",
+        "Divisa ufficiale del Convitto",
+        "Astuccio con delle penne e matite",
+        "Qualche quaderno a quadretti"
+      ],
+      nelloZaino: [
+        "Cappello con visiera",
+        "Cuffiette",
+        "Occhiali da sole",
+        "Borraccia"
+      ]
     }
   }
 }
 </script>
+
+<style scoped>
+.title {
+  margin-top: 10px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+
+  color: #327D68;
+}
+
+.container {
+  padding-horizontal: 20px;
+  margin-top: 20px;
+}
+
+.todos {
+  margin-top: 10px;
+}
+</style>

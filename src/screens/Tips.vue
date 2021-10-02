@@ -64,7 +64,6 @@ export default {
 .sections {
   margin-top: 20px;
 
-  /* padding-vertical: 10px; */
   padding-horizontal: 10px;
 }
 </style>
