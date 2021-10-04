@@ -61,6 +61,8 @@ export default {
 }
 
 .text {
+  margin-bottom: 5px;
+
   font-style: normal;
   font-weight: bold;
   font-size: 18px;

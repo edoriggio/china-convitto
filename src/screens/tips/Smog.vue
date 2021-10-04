@@ -20,15 +20,15 @@
 
     <view class="app">
       <image class="image"
-            :source="require('../../../assets/apps/air_matters.png')" />
+             :source="require('../../../assets/apps/air_matters.png')" />
 
       <text class="title">Air Matters: Global Air Quality</text>
       <text class="text">By Air Matters Network Pty Ltd</text>
     </view>
 
     <warning title="Attenzione!"
-              content="A causa dell'elevata presenza di polveri sottili nell'aria, è consigliato portare nello zaino una mascherina"
-              color="#F1A83A" />
+             content="A causa dell'elevata presenza di polveri sottili nell'aria, è consigliato portare nello zaino una mascherina"
+             color="#F1A83A" />
 
     <touchable-opacity class="plate"
                        :onPress="() => openLink(platform)">
@@ -115,7 +115,7 @@ export default {
 
   font-style: normal;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 17px;
 
   color: white;
 }

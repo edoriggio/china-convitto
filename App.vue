@@ -155,7 +155,7 @@ const StackNavigator = createStackNavigator(
     Presa: {
       screen: Presa,
       navigationOptions: () => ({
-        title: 'Prese',
+        title: 'Presa',
         headerStyle: {
           marginTop: STATUS_BAR_HEIGHT,
           elevation: 0,
