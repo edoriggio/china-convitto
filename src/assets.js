@@ -20,5 +20,25 @@ export default function getImage(code) {
       return require('../assets/monuments/parco_olimpico.jpg')
     case 'NANLUOGUXIANG':
       return require('../assets/monuments/nanluoguxiang.jpg')
+    case 'TEMPIO_DEI_LAMA':
+      return require('../assets/monuments/tempio_dei_lama.jpeg')
+    case 'CHENGDE':
+      return require('../assets/monuments/chengde.jpg')
+    case 'GULOU':
+      return require('../assets/monuments/gulou.jpg')
+    case 'TEMPIO_DI_CONFUCIO':
+      return require('../assets/monuments/tempio_di_confucio.jpg')
+    case 'MUSEO_NAZIONALE':
+      return require('../assets/monuments/museo_nazionale.jpeg')
+    case 'MUSEO_SCI_TECH':
+      return require('../assets/monuments/museo_sci_tech.jpg')
+    case 'STORIA':
+      return require('../assets/monuments/storia.jpg')
+    case 'URBANISTICA':
+      return require('../assets/monuments/urbanistica.jpg')
+    case 'CONCESSIONE':
+      return require('../assets/monuments/concessione.jpg')
+    case 'BUND':
+      return require('../assets/monuments/bund.jpg')
   }
 }

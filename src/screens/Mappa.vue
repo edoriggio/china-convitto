@@ -104,9 +104,6 @@ export default {
         .catch((err) => {
           console.log(err)
         })
-    },
-    navigation(latitude, longitude) {
-      
     }
   }
 }
