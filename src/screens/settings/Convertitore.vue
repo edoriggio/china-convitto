@@ -15,7 +15,8 @@
 <template>
   <view class="view">
     <scroll-view class="scroll-view" 
-                 :scollEnabled="false">
+                 :scollEnabled="false"
+                 :alwaysBounceVertical="false">
       <view class="converter">
         <status-bar :backgroundColor="'transparent'"
                     :barStyle="'dark-content'"

@@ -30,7 +30,7 @@
     </scroll-view>
 
     <view class="info">
-      <text>Version {{ version }}</text>
+      <text class="version">Version {{ version }}</text>
       <touchable-opacity :onPress="openLink">
         <text class="content">GitHub Repository</text>
       </touchable-opacity>
@@ -98,5 +98,9 @@ export default {
   margin-top: 10px;
 
   text-decoration-line: underline;
+}
+
+.version {
+  font-weight: bold;
 }
 </style>

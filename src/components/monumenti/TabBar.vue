@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      titles: ['Primo', 'Secondo', 'Terzo', 'Quarto']
+      titles: ['Primo', 'Secondo', 'Terzo']
     }
   },
   mounted() {

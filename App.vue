@@ -36,7 +36,6 @@ import Mappa from './src/screens/Mappa.vue'
 // TIPS
 import Tips from './src/screens/Tips.vue'
 import Acqua from './src/screens/tips/Acqua.vue'
-import Frasi from './src/screens/tips/Frasi.vue'
 import Partire from './src/screens/tips/Partire.vue'
 import Presa from './src/screens/tips/Presa.vue'
 import Smog from './src/screens/tips/Smog.vue'
@@ -134,17 +133,6 @@ const StackNavigator = createStackNavigator(
       screen: Acqua,
       navigationOptions: () => ({
         title: 'Acqua',
-        headerStyle: {
-          marginTop: STATUS_BAR_HEIGHT,
-          elevation: 0,
-          shadowOpacity: 0
-        }
-      })
-    },
-    Frasi: {
-      screen: Frasi,
-      navigationOptions: () => ({
-        title: 'Frasi Utili',
         headerStyle: {
           marginTop: STATUS_BAR_HEIGHT,
           elevation: 0,
