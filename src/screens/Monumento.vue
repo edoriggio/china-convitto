@@ -31,13 +31,13 @@
 
       <view class="header">
         <view>
-          <text class="title">{{ params.name }}</text>
+          <text class="title">{{ title }}</text>
           <text class="chinese">{{ params.chinese }}</text>
         </view>
 
         <touchable-opacity class="nav"
                            :onPress="showLocation">
-          <icon name="compass-3-fill" color="white" />
+          <icon class="compass" name="compass-3-fill" color="white" />
         </touchable-opacity>
       </view>
 
@@ -87,6 +87,7 @@ export default {
   data() {
     return {
       params: this.navigation.state.params,
+      title: String,
       width: Dimensions.get('window').width,
       top: STATUS_BAR_HEIGHT,
       navigation_bar: NAVIGATION_BAR,
@@ -99,7 +100,13 @@ export default {
   mounted() {
     this.text = this.params.article[0]
 
-    console.log(this.params.coordinates.latitude)
+    if (this.params.name === 'Museo di Scienza e Tecnologia') {
+      this.title = 'Museo di Scienza \ne Tecnologia'
+    } else if (this.params.name === 'Storia della Città di Shanghai') {
+      this.title = 'Storia della Città \ndi Shanghai'
+    } else {
+      this.title = this.params.name
+    }
 
     if (this.params.titles.length > 0) {
       this.margin_top = 20

@@ -13,11 +13,63 @@
 // limitations under the License.
 
 <template>
-  <view>
+  <view class="container">
     <status-bar :backgroundColor="'transparent'"
-              :barStyle="'dark-content'"
-              :translucent="true" />
+                :barStyle="'dark-content'"
+                :translucent="true" />
+
+    <segmented-control class="segmented"
+                       :values="titles"
+                       :selectedIndex="selectedIndex"
+                       :tintColor="'#327D68'"
+                       :fontStyle="{ color: 'black' }"
+                       :activeFontStyle="{ color: 'white' }"
+                       :onChange="(event) => {
+                         selectedIndex = event.nativeEvent.selectedSegmentIndex
+                       }" />
               
-    <text> Ciao </text>
+    <web-view class="web-view"
+              :source="{uri: link}"
+              :androidHardwareAccelerationDisabled="true" />
   </view>
 </template>
+
+<script>
+import 'react-native-get-random-values';
+
+import { WebView } from 'react-native-webview'
+import SegmentedControl from '@react-native-segmented-control/segmented-control';
+
+export default {
+  components: {
+    WebView,
+    SegmentedControl
+  },
+  data() {
+    return {
+      titles: ['2015', '2016'],
+      link: 'https://chinaconvitto.wixsite.com/2015rewind',
+      selectedIndex: 0
+    }
+  },
+  watch: {
+    'selectedIndex': function(val, _){
+      this.link = val === 1 ? 'https://chinaconvitto.wixsite.com/2016rewind' 
+                  : 'https://chinaconvitto.wixsite.com/2015rewind'
+    }
+  },
+}
+</script>
+
+<style scoped>
+.container {
+  flex: 1;
+}
+
+.segmented {
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+  margin-horizontal: 20px;
+}
+</style>
