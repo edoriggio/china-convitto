@@ -1,0 +1,27 @@
+{
+  "Prima di Partire": {
+    "name": "Prima di Partire",
+    "icon": "briefcase-3-line",
+    "link": "Partire"
+  },
+  "Smog": {
+    "name": "Smog",
+    "icon": "mist-line",
+    "link": "Smog"
+  },
+  "Acqua": {
+    "name": "Acqua",
+    "icon": "drop-line",
+    "link": "Acqua"
+  },
+  "Presa": {
+    "name": "Presa",
+    "icon": "plug-2-line",
+    "link": "Presa"
+  },
+  "VPN": {
+    "name": "VPN",
+    "icon": "shield-keyhole-line",
+    "link": "VPN"
+  }
+}

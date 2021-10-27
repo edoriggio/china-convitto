@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ChinaConvitto",
-    "slug": "ChinaConvitto",
+    "name": "china-convitto",
+    "slug": "china-convitto",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,9 +17,20 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "infoPlist": {
+        "LSApplicationQueriesSchemes": [
+          "comgooglemaps",
+          "citymapper",
+          "uber",
+          "lyft",
+          "waze"
+        ]
+      }
     },
     "android": {
+      "package": "com.ercapps.chinaconvitto",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
@@ -27,6 +38,16 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "packagerOpts": {
+      "config": "metro.config.js",
+      "sourceExts": [
+        "js",
+        "json",
+        "ts",
+        "tsx",
+        "vue"
+      ]
     }
   }
 }

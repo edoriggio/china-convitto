@@ -1,0 +1,17 @@
+{
+  "Numeri di Emergenza": {
+    "name": "Numeri di Emergenza",
+    "icon": "alarm-warning-line",
+    "link": "Numeri"
+  },
+  "Convertitore": {
+    "name": "Convertitore",
+    "icon": "exchange-cny-line",
+    "link": "Convertitore"
+  },
+  "Riconoscimenti": {
+    "name": "Riconoscimenti",
+    "icon": "group-line",
+    "link": "Riconoscimenti"
+  }
+}
